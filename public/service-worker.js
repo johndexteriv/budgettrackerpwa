@@ -1,4 +1,12 @@
-const FILES_TO_CACHE = ["/", "/index.html"];
+const FILES_TO_CACHE = [
+	"/",
+	"/index.html",
+	"/assets/css/style.css",
+	"/dist/app.bundle.js",
+	"/dist/indexeddb.bundle.js",
+	"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+	"https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
+];
 
 const PRECACHE = "precache-v1";
 const RUNTIME = "runtime";

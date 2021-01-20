@@ -1,0 +1,15 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/*!***************************************!*\
+  !*** ./public/assets/js/indexeddb.js ***!
+  \***************************************/
+eval("var db; // create a new db request for a \"budget\" database.\n\nvar request = indexedDB.open(\"budget\", 1);\n\nrequest.onupgradeneeded = function (event) {\n  // create object store called \"pending\" and set autoIncrement to true\n  var db = event.target.result;\n  db.createObjectStore(\"pending\", {\n    autoIncrement: true\n  });\n};\n\nrequest.onsuccess = function (event) {\n  db = event.target.result; // check if app is online before reading from db\n\n  if (navigator.onLine) {\n    checkDatabase();\n  }\n};\n\nrequest.onerror = function (event) {\n  console.log(\"Woops! \" + event.target.errorCode);\n};\n\nfunction saveRecord(record) {\n  // create a transaction on the pending db with readwrite access\n  var transaction = db.transaction([\"pending\"], \"readwrite\"); // access your pending object store\n\n  var store = transaction.objectStore(\"pending\"); // add record to your store with add method.\n\n  store.add(record);\n}\n\nfunction checkDatabase() {\n  // open a transaction on your pending db\n  var transaction = db.transaction([\"pending\"], \"readwrite\"); // access your pending object store\n\n  var store = transaction.objectStore(\"pending\"); // get all records from store and set to a variable\n\n  var getAll = store.getAll();\n\n  getAll.onsuccess = function () {\n    if (getAll.result.length > 0) {\n      fetch(\"/api/transaction/bulk\", {\n        method: \"POST\",\n        body: JSON.stringify(getAll.result),\n        headers: {\n          Accept: \"application/json, text/plain, */*\",\n          \"Content-Type\": \"application/json\"\n        }\n      }).then(function (response) {\n        return response.json();\n      }).then(function () {\n        // if successful, open a transaction on your pending db\n        var transaction = db.transaction([\"pending\"], \"readwrite\"); // access your pending object store\n\n        var store = transaction.objectStore(\"pending\"); // clear all items in your store\n\n        store.clear();\n      });\n    }\n  };\n} // listen for app coming back online\n\n\nwindow.addEventListener(\"online\", checkDatabase);\n\n//# sourceURL=webpack://budgettrackerpwa/./public/assets/js/indexeddb.js?");
+/******/ })()
+;
