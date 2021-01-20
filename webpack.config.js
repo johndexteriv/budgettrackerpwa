@@ -13,6 +13,7 @@ const config = {
 	mode: "development",
 	plugins: [
 		new WebpackPwaManifest({
+			publicPath: "/",
 			fingerprints: false,
 			name: "Budget Tracker",
 			short_name: "Budget Tracker",
