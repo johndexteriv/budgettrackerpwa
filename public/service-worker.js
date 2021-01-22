@@ -2,8 +2,16 @@ const FILES_TO_CACHE = [
 	"/",
 	"/index.html",
 	"/assets/css/style.css",
-	"/dist/app.bundle.js",
+	"/dist/manifest.json",
 	"/dist/indexeddb.bundle.js",
+	"/dist/app.bundle.js",
+	"service-worker.js",
+	"/dist/assets/icons/icon_96x96.png",
+	"/dist/assets/icons/icon_128x128.png",
+	"/dist/assets/icons/icon_192x192.png",
+	"/dist/assets/icons/icon_256x256.png",
+	"/dist/assets/icons/icon_384x384.png",
+	"/dist/assets/icons/icon_512x512.png",
 	"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
 	"https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
 ];
@@ -20,7 +28,6 @@ self.addEventListener("install", (event) => {
 	);
 });
 
-// The activate handler takes care of cleaning up old caches.
 self.addEventListener("activate", (event) => {
 	const currentCaches = [PRECACHE, RUNTIME];
 	event.waitUntil(
@@ -69,8 +76,6 @@ self.addEventListener("fetch", function (evt) {
 		return;
 	}
 
-	// if the request is not for the API, serve static assets using "offline-first" approach.
-	// see https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook#cache-falling-back-to-network
 	evt.respondWith(
 		caches.match(evt.request).then(function (response) {
 			return response || fetch(evt.request);

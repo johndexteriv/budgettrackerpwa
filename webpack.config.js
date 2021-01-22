@@ -21,7 +21,7 @@ const config = {
 			background_color: "#01579b",
 			theme_color: "#ffffff",
 			"theme-color": "#ffffff",
-			start_url: "/",
+			// start_url: "/",
 			icons: [
 				{
 					src: path.resolve("public/assets/icons/icon-192x192.png"),
