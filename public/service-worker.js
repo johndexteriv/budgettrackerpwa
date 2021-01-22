@@ -8,7 +8,7 @@ const FILES_TO_CACHE = [
 	"service-worker.js",
 	"/dist/assets/icons/icon_96x96.png",
 	"/dist/assets/icons/icon_128x128.png",
-	"/dist/assets/icons/icon_192x192.png",
+	"/dist/assets/icons/icon-192x192.png",
 	"/dist/assets/icons/icon_256x256.png",
 	"/dist/assets/icons/icon_384x384.png",
 	"/dist/assets/icons/icon_512x512.png",
