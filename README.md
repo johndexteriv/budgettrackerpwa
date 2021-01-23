@@ -29,3 +29,30 @@ WHEN the user inputs a withdrawal or deposit
 THEN that will be shown on the page, and added to their transaction history when their connection is back online.
 
 ---
+
+## Built With
+
+- [NodeJS](https://www.nodejs.org/en/)
+- [ExpressJS](https://www.expressjs.com/)
+- [MongoDb](https://www.mongodb.com/)
+- [Mongoose](https://www.mongoosejs.com/)
+- [WebPack](https://webpack.js.org/)
+
+## Deployed On
+
+- [Heroku](https://www.heroku.com/)
+
+## Author
+
+- [**Dexter Garner**](https://github.com/johndexteriv)
+
+## License
+
+This project is licensed under the MIT License.
+
+## Repository and Deployed Application
+
+- [GitHub Repo](https://github.com/johndexteriv/budgettrackerpwa)
+- [Deployed Applicatin](https://jdgbudgettrackerpwa.herokuapp.com/)
+
+![WorkoutHome](/public/assets/images/budgettracker.png)
