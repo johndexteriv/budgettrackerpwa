@@ -1,4 +1,6 @@
 {
+  "short_name": "Budget Tracker",
+  "name": "Budget Tracker",
   "icons": [
     {
       "src": "../assets/icons/icon-192x192.png",
@@ -11,8 +13,6 @@
       "type": "image/png"
     }
   ],
-  "name": "Budget Tracker",
-  "short_name": "Budget Tracker",
   "orientation": "portrait",
   "display": "standalone",
   "start_url": ".",
